@@ -24,10 +24,10 @@ class Naver_id_manager(models.Model):
     naver_login_status = models.CharField(max_length=6 , verbose_name='로그인 가능여부', choices=status, blank=True, null=True)
 
     naver_last_login   = models.DateTimeField(verbose_name='last login', auto_now=True) # 마지막 로그인
-    naver_pc_agent     = models.CharField(max_length=500, verbose_name='PC 에이전트', default=None, null=True)
-    naver_mobile_agent = models.CharField(max_length=500, verbose_name='비밀번호', default=None, null=True)
+    naver_pc_agent     = models.CharField(max_length=500, verbose_name='PC 에이전트', blank=True, null=True)
+    naver_mobile_agent = models.CharField(max_length=500, verbose_name='비밀번호', blank=True, null=True)
 
     class Meta:
         db_table            = 'naver_id_manager'
-        verbose_name        = '네이버 계정'
-        verbose_name_plural = '네이버 계정'
+        verbose_name        = '네이버 계정 관리'
+        verbose_name_plural = '네이버 계정 관리'
