@@ -13,17 +13,20 @@ status = (
 
 class Naver_id_manager(models.Model):
     naver_id           = models.CharField(max_length=20, verbose_name='아이디')
-    naver_pw           = models.CharField(max_length=20, default=None, null=True, verbose_name='비밀번호')
+    naver_pw           = models.CharField(max_length=20, verbose_name='비밀번호', default=None, null=True)
     naver_name         = models.CharField(max_length=20, verbose_name='이름')
-    naver_gender       = models.CharField(max_length=6, choices=gender, blank=True, null=True, verbose_name='성별')
-    naver_birth        = models.DateField(max_length=8, verbose_name='생년월일')
-    naver_phone        = models.CharField(max_length=20, blank=True, null=True, verbose_name='전화번호')
-    naver_country      = models.CharField(max_length=10, blank=True, null=True, verbose_name='국가')
-    naver_join_ip      = models.CharField(max_length=20, blank=True, null=True, verbose_name='가입 ip')
-    naver_real_status  = models.CharField(max_length=6, choices=status, blank=True, null=True, verbose_name='실명여부')
-    naver_login_status = models.CharField(max_length=6, choices=status, blank=True, null=True, verbose_name='로그인 가능여부')
-    naver_last_login   = models.DateTimeField(verbose_name='last login',auto_now=True) # 마지막 로그인
-    
+    naver_gender       = models.CharField(max_length=6 , verbose_name='성별', choices=gender, blank=True, null=True)
+    naver_birth        = models.DateField(max_length=8 , verbose_name='생년월일')
+    naver_phone        = models.CharField(max_length=20, verbose_name='전화번호', blank=True, null=True)
+    naver_country      = models.CharField(max_length=10, verbose_name='국가', blank=True, null=True)
+    naver_join_ip      = models.CharField(max_length=20, verbose_name='가입 ip', blank=True, null=True)
+    naver_real_status  = models.CharField(max_length=6 , verbose_name='실명여부', choices=status, blank=True, null=True)
+    naver_login_status = models.CharField(max_length=6 , verbose_name='로그인 가능여부', choices=status, blank=True, null=True)
+
+    naver_last_login   = models.DateTimeField(verbose_name='last login', auto_now=True) # 마지막 로그인
+    naver_pc_agent     = models.CharField(max_length=500, verbose_name='PC 에이전트', default=None, null=True)
+    naver_mobile_agent = models.CharField(max_length=500, verbose_name='비밀번호', default=None, null=True)
+
     class Meta:
         db_table            = 'naver_id_manager'
         verbose_name        = '네이버 계정'
