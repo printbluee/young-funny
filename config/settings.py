@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    "Core",
     "Naver",
-    "Account"
+    "N_Account"
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 모델을 따로 커스텀 했기에 정의
+AUTH_USER_MODEL = 'Core.Account' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
