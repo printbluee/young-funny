@@ -1,8 +1,11 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import Account
 
-class AccountAdmin(admin.ModelAdmin):
-    list_display = ['user_name', 'user_id', 'user_phone', 'is_admin', 'is_staff', 'is_superuser', 'uuid']
+class AccountAdmin(UserAdmin):
+    #Fields = ['username', 'password', 'name', 'user_phone', 'is_admin', 'is_staff', 'is_superuser']
+    list_display = ('username', 'name', 'user_phone', 'is_admin', 'is_staff', 'is_superuser', 'create_at', 'last_login')
+    search_fields = ('username', 'name')
+    readonly_fields = ('create_at','last_login')
 
-    search_fields = ('user_name', 'user_id')
 admin.site.register(Account,AccountAdmin) 
